@@ -2,6 +2,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from torchvision.datasets import CIFAR10 
 import torchvision.transforms as transforms
 import cv2
 import os
@@ -69,9 +70,10 @@ def train(model, optimizer, criterion, num_epochs=5):
 
 # 5. Main Function
 if __name__ == "__main__":
+    dataset = CIFAR10(root='./data', download=True, transform=transforms.ToTensor())
     print("Hello, world!")
-    model = ColorizationCNN()
-    optimizer = optim.Adam(model.parameters(), lr=1e-3)
-    criterion = nn.MSELoss()
+    #model = ColorizationCNN()
+    #optimizer = optim.Adam(model.parameters(), lr=1e-3)
+    #criterion = nn.MSELoss()
 
-    train(model, optimizer, criterion)
+    #train(model, optimizer, criterion)
